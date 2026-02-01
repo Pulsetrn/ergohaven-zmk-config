@@ -1,8 +1,7 @@
 #include "keys_ru.h"
 #include <behaviors.dtsi>
-#include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/outputs.h>
+#include <dt-bindings/zmk/pointing.h>
 
 &mt {
     quick-tap-ms = <200>;
@@ -37,6 +36,34 @@
             hold-trigger-key-positions = <0 1 2 3 4 10 11 12 13 14 20 21 22 23 24 30 31 32>;
             hold-trigger-on-release;
         };
+
+        td_dot: td_dot {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_DOT";
+            #binding-cells = <0>;
+            bindings = <&kp H>, <&kp LS(N7)>;
+        };
+
+        td_colon: td_colon {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_COLON";
+            #binding-cells = <0>;
+            bindings = <&kp L>, <&kp LS(N5)>;
+        };
+
+        td_semicolon: td_semicolon {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_SEMICOLON";
+            #binding-cells = <0>;
+            bindings = <&kp COMMA>, <&kp LS(N8)>;
+        };
+
+        td_comma: td_comma {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_COMMA";
+            #binding-cells = <0>;
+            bindings = <&kp DOT>, <&kp LS(N6)>;
+        };
     };
 
     combos {
@@ -53,51 +80,112 @@
         };
     };
 
+    macros {
+        cb_macos: cb_macos {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LG(SPACE)>, <&macro_wait_time 30>, <&kp LG(N4)>;
+
+            label = "CB_MACOS";
+        };
+
+        select_string: select_string {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LG(RIGHT) &kp LS(LG(LEFT))>;
+            label = "SELECT_STRING";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
-        base {
+        english_macos {
             bindings = <
-  &kp A        &kp W        &kp E         &kp R          &kp T                          &kp Y  &kp U         &kp I         &kp O        &kp P
-  &hml LGUI A  &hml LALT S  &hml LSHFT D  &hml LCTRL F   &kp G                          &kp H  &hmr RCTRL J  &hmr RSHFT K  &hmr LALT L  &hmr RGUI SEMICOLON
-  &kp Z        &kp X        &kp C         &kp V          &kp B                          &kp N  &kp M         &kp COMMA     &kp DOT      &kp SQT
-                                          &kp BACKSPACE  &mo 1  &kp SPACE    &kp ENTER  &mo 2  &kp TAB
+  &kp V    &kp M                &kp L            &kp C                &kp P                                         &kp X    &kp F                &kp O            &kp U                &kp J
+  &kp S    &hml LEFT_CONTROL T  &hml LEFT_ALT R  &hml LEFT_COMMAND D  &kp Y                                         &kp DOT  &hmr LEFT_COMMAND N  &hmr LEFT_ALT A  &hmr LEFT_CONTROL E  &kp I
+  &kp ESC  &kp K                &kp Q            &kp G                &kp W                                         &kp B    &kp H                &kp SEMI         &kp COMMA            &kp APOS
+                                                 &mo 2                &lt 4 BACKSPACE  &sk LEFT_SHIFT    &kp SPACE  &mo 5    &lt 6 Z
             >;
 
-            display-name = "Base";
+            display-name = "eng";
         };
 
-        nav {
+        russian_macos {
             bindings = <
-  &kp N1         &kp N2    &kp N3     &kp N4     &kp N5                        &kp N6           &kp N7           &kp N8           &kp N9        &kp N0
-  &hml LGUI ESC  &kp LALT  &kp LSHFT  &kp LCTRL  &kp ENTER                     &kp PRINTSCREEN  &hmr RCTRL LEFT  &hmr RSHFT DOWN  &hmr LALT UP  &hmr RGUI RIGHT
-  &none          &kp HOME  &kp INS    &kp END    &kp DELETE                    &kp CAPS         &none            &kp PG_DN        &kp PG_UP     &none
-                                      &trans     &trans      &trans    &trans  &mo 3            &trans
+  &kp Q  &kp W                &kp E            &kp R                &kp T                     &kp Y    &kp U                &kp I            &kp O      &kp P
+  &kp A  &hml LEFT_CONTROL S  &hml LEFT_ALT D  &hml LEFT_COMMAND F  &kp G                     &td_dot  &hmr LEFT_COMMAND J  &hmr LEFT_ALT K  &td_colon  &kp SEMI
+  &kp Z  &kp X                &kp C            &kp V                &kp B                     &kp N    &kp M                &td_semicolon    &td_comma  &kp LBKT
+                                               &trans               &trans  &trans    &trans  &trans   &lt 6 SINGLE_QUOTE
             >;
 
-            display-name = "Nav";
+            display-name = "ru";
         };
 
-        sym {
+        functional_macos {
             bindings = <
-  &none           &kp LT          &kp EQUAL         &kp GT           &kp GRAVE                    &kp CARET  &kp LBKT         &kp UNDER        &kp RBKT        &none
-  &hml LGUI BSLH  &hml LALT LPAR  &hml LSHFT MINUS  &hml LCTRL RPAR  &kp PLUS                     &kp PRCNT  &hmr RCTRL LBRC  &hmr RSHFT SEMI  &hmr LALT RBRC  &hmr RGUI EXCL
-  &kp HASH        &kp STAR        &kp COLON         &kp FSLH         &none                        &none      &kp PIPE         &kp TILDE        &kp AMPS        &kp DLLR
-                                                    &trans           &mo 3      &trans    &trans  &trans     &trans
+  &kp LS(LG(S))   &kp LG(LA(LEFT))  &kp LA(LG(F))  &kp LA(LG(RIGHT))  &trans                               &trans  &trans                    &trans                     &trans     &trans
+  &sk LEFT_SHIFT  &kp LG(LS(TAB))   &sk LEFT_ALT   &kp LG(TAB)        &kp RETURN                           &trans  &kp LG(T)                 &kp LG(W)                  &kp LG(L)  &trans
+  &kp ESC         &kp LG(Z)         &kp LG(C)      &kp LG(V)          &cb_macos                            &trans  &kp LS(LG(LEFT_BRACKET))  &kp LS(LG(RIGHT_BRACKET))  &trans     &trans
+                                                   &trans             &trans      &trans    &kp LG(SPACE)  &trans  &kp LC(LA(SPACE))
             >;
 
-            display-name = "Symbols";
+            display-name = "func";
         };
 
-        adj {
+        symbols {
             bindings = <
-  &bootloader  &kp F1        &kp F2         &kp F3         &kp F4                     &bt BT_SEL 0  &bt BT_SEL 1         &bt BT_SEL 2       &bt BT_SEL 3        &bt BT_CLR
-  &kp LGUI     &hml LALT F5  &hml LSHFT F6  &hml LCTRL F7  &kp F8                     &out OUT_BLE  &hmr RCTRL C_VOL_DN  &hmr RSHFT C_MUTE  &hmr LALT C_VOL_UP  &kp RGUI
-  &none        &kp F9        &kp F10        &kp F11        &kp F12                    &out OUT_USB  &kp C_PREV           &kp C_PP           &kp C_NEXT          &studio_unlock
-                                            &trans         &trans   &trans    &trans  &trans        &trans
+  &kp EXCL      &kp LT        &kp MINUS      &kp GT    &kp CARET                      &kp HASH        &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp BACKSLASH  &kp TILDE
+  &kp UNDER     &kp ASTERISK  &kp SLASH      &mo 4     &kp EQUAL                      &kp DOT         &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp COLON      &kp DOUBLE_QUOTES
+  &kp QUESTION  &kp PLUS      &kp AMPERSAND  &kp PIPE  &kp PERCENT                    &kp AT_SIGN     &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp COMMA      &kp SINGLE_QUOTE
+                                             &trans    &trans       &trans    &trans  &lt 5 NUMBER_0  &kp DOLLAR
             >;
 
-            display-name = "Adjust";
+            label = "sym";
+        };
+
+        symbols_numpad {
+            bindings = <
+  &kp EXCL      &kp LT        &kp MINUS      &kp GT    &kp CARET                      &kp HASH        &kp N7      &kp N8  &kp N9  &kp TILDE
+  &kp UNDER     &kp ASTERISK  &kp SLASH      &trans    &kp EQUAL                      &kp DOT         &kp N1      &kp N2  &kp N3  &kp DOUBLE_QUOTES
+  &kp QUESTION  &kp PLUS      &kp AMPERSAND  &kp PIPE  &kp PERCENT                    &kp AT_SIGN     &kp N4      &kp N5  &kp N6  &kp SINGLE_QUOTE
+                                             &trans    &trans       &trans    &trans  &lt 5 NUMBER_0  &kp DOLLAR
+            >;
+
+            label = "num";
+        };
+
+        navigation {
+            bindings = <
+  &trans            &kp LA(SLASH)     &trans        &trans          &trans                          &kp PAGE_UP    &kp LG(LEFT)  &kp UP    &kp LG(RIGHT)   &kp C_MENU
+  &sk LEFT_CONTROL  &kp LEFT_COMMAND  &kp LEFT_ALT  &kp LEFT_SHIFT  &trans                          &kp PAGE_DOWN  &kp LEFT      &kp DOWN  &kp RIGHT       &kp DELETE
+  &kp ESC           &kp LG(Z)         &kp LG(C)     &kp LG(V)       &cb_macos                       &trans         &kp ENTER     &kp TAB   &select_string  &trans
+                                                    &trans          &trans     &kp SPACE    &trans  &trans         &trans
+            >;
+
+            label = "nav";
+        };
+
+        mouse_media {
+            bindings = <
+  &trans  &mkp MB2        &mmv MOVE_UP    &mkp MB1         &msc SCRL_UP                      &trans  &sl 7             &trans           &trans            &trans
+  &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_DOWN                    &trans  &sk LEFT_COMMAND  &sk LEFT_ALT     &sk LEFT_CONTROL  &sk LEFT_SHIFT
+  &trans  &msc SCRL_LEFT  &mkp MB3        &msc SCRL_RIGHT  &trans                            &trans  &kp C_VOL_DN      &kp C_VOLUME_UP  &kp K_MUTE        &kp K_STOP
+                                          &trans           &trans          &trans    &trans  &trans  &trans
+            >;
+
+            label = "mm";
+        };
+
+        fn {
+            bindings = <
+  &kp F12  &kp F11  &kp F10  &kp F9  &trans                    &trans  &kp F9  &kp F10  &kp F11  &kp F12
+  &kp F4   &kp F3   &kp F2   &kp F1  &trans                    &trans  &kp F1  &kp F2   &kp F3   &kp F4
+  &kp ESC  &kp F7   &kp F6   &kp F5  &trans                    &trans  &kp F5  &kp F6   &kp F7   &kp F8
+                             &trans  &trans  &trans    &trans  &trans  &trans
+            >;
+
+            label = "fn";
         };
     };
 };
