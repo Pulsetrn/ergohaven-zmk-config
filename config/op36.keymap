@@ -9,6 +9,13 @@
     require-prior-idle-ms = <125>;
 };
 
+&sk {
+    release-after-ms = <5000>;
+    quick-release;
+};
+
+&sl { release-after-ms = <5000>; };
+
 / {
     behaviors {
         hml: home_row_mod_left {
@@ -64,19 +71,53 @@
             #binding-cells = <0>;
             bindings = <&kp DOT>, <&kp LS(N6)>;
         };
+
+        bs_sym: bs_sym {
+            compatible = "zmk,behavior-hold-tap";
+            label = "BS_SYM";
+            bindings = <&mo>, <&kp>;
+
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <180>;
+            quick-tap-ms = <0>;
+        };
     };
 
     combos {
         compatible = "zmk,combos";
 
-        kha {
-            bindings = <&kp LBKT>;
-            key-positions = <6 7>;
+        ssign {
+            bindings = <&kp RIGHT_BRACKET>;
+            key-positions = <25 26>;
+            layers = <1>;
         };
 
-        hrdsgn {
-            bindings = <&kp RBKT>;
-            key-positions = <7 8>;
+        yio {
+            bindings = <&kp GRAVE>;
+            key-positions = <23 24>;
+            layers = <1>;
+        };
+
+        autop {
+            bindings = <&autop>;
+            key-positions = <16 17>;
+            layers = <3>;
+            timeout-ms = <28>;
+        };
+
+        autobrace {
+            bindings = <&autobrace>;
+            key-positions = <26 27>;
+            timeout-ms = <28>;
+            layers = <3>;
+        };
+
+        autobracket {
+            bindings = <&autobracket>;
+            key-positions = <6 7>;
+            timeout-ms = <28>;
+            layers = <3>;
         };
     };
 
@@ -95,6 +136,27 @@
             bindings = <&kp LG(RIGHT) &kp LS(LG(LEFT))>;
             label = "SELECT_STRING";
         };
+
+        autop: autop {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_PARENTHESIS &kp RIGHT_PARENTHESIS &kp LEFT>;
+            label = "AUTOP";
+        };
+
+        autobracket: autobracket {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_BRACKET &kp RIGHT_BRACKET &kp LEFT>;
+            label = "AUTOBRACKET";
+        };
+
+        autobrace: autobrace {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_BRACE &kp RIGHT_BRACE &kp LEFT>;
+            label = "AUTOBRACE";
+        };
     };
 
     keymap {
@@ -102,10 +164,10 @@
 
         english_macos {
             bindings = <
-  &kp V    &kp M                &kp L            &kp C                &kp P                                         &kp X    &kp F                &kp O            &kp U                &kp J
-  &kp S    &hml LEFT_CONTROL T  &hml LEFT_ALT R  &hml LEFT_COMMAND D  &kp Y                                         &kp DOT  &hmr LEFT_COMMAND N  &hmr LEFT_ALT A  &hmr LEFT_CONTROL E  &kp I
-  &kp ESC  &kp K                &kp Q            &kp G                &kp W                                         &kp B    &kp H                &kp SEMI         &kp COMMA            &kp APOS
-                                                 &mo 2                &lt 4 BACKSPACE  &sk LEFT_SHIFT    &kp SPACE  &mo 5    &lt 6 Z
+  &kp V    &kp M                &kp L            &kp C                &kp P                                             &kp X    &kp F                &kp O            &kp U                &kp J
+  &kp S    &hml LEFT_CONTROL T  &hml LEFT_ALT R  &hml LEFT_COMMAND D  &kp Y                                             &kp DOT  &hmr LEFT_COMMAND N  &hmr LEFT_ALT A  &hmr LEFT_CONTROL E  &kp I
+  &kp ESC  &kp K                &kp Q            &kp G                &kp W                                             &kp B    &kp H                &kp SEMI         &kp COMMA            &kp APOS
+                                                 &mo 2                &bs_sym 3 BACKSPACE  &sk LEFT_SHIFT    &kp SPACE  &mo 5    &lt 6 Z
             >;
 
             display-name = "eng";
@@ -146,7 +208,7 @@
 
         symbols_numpad {
             bindings = <
-  &kp EXCL      &kp LT        &kp MINUS      &kp GT    &kp CARET                      &kp HASH        &kp N7      &kp N8  &kp N9  &kp TILDE
+  &kp EXCL      &kp LT        &kp MINUS      &kp GT    &kp CARET                      &kp HASH        &kp N7      &kp N8  &kp N9  &kp GRAVE
   &kp UNDER     &kp ASTERISK  &kp SLASH      &trans    &kp EQUAL                      &kp DOT         &kp N1      &kp N2  &kp N3  &kp DOUBLE_QUOTES
   &kp QUESTION  &kp PLUS      &kp AMPERSAND  &kp PIPE  &kp PERCENT                    &kp AT_SIGN     &kp N4      &kp N5  &kp N6  &kp SINGLE_QUOTE
                                              &trans    &trans       &trans    &trans  &lt 5 NUMBER_0  &kp DOLLAR
