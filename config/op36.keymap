@@ -157,6 +157,13 @@
             bindings = <&kp LEFT_BRACE &kp RIGHT_BRACE &kp LEFT>;
             label = "AUTOBRACE";
         };
+
+        ru_switch: ru_switch {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LA(LC(SPACE)) &tog 1>;
+            label = "RU_SWITCH";
+        };
     };
 
     keymap {
@@ -189,7 +196,7 @@
   &kp LS(LG(S))   &kp LG(LA(LEFT))  &kp LA(LG(F))  &kp LA(LG(RIGHT))  &trans                               &trans  &trans                    &trans                     &trans     &trans
   &sk LEFT_SHIFT  &kp LG(LS(TAB))   &sk LEFT_ALT   &kp LG(TAB)        &kp RETURN                           &trans  &kp LG(T)                 &kp LG(W)                  &kp LG(L)  &trans
   &kp ESC         &kp LG(Z)         &kp LG(C)      &kp LG(V)          &cb_macos                            &trans  &kp LS(LG(LEFT_BRACKET))  &kp LS(LG(RIGHT_BRACKET))  &trans     &trans
-                                                   &trans             &trans      &trans    &kp LG(SPACE)  &trans  &kp LC(LA(SPACE))
+                                                   &trans             &trans      &trans    &kp LG(SPACE)  &trans  &ru_switch
             >;
 
             display-name = "func";
