@@ -102,15 +102,53 @@
             quick-tap-ms = <0>;
         };
 
-        ret_nav: ret_nav {
+        sl_mo: sl_mo {
             compatible = "zmk,behavior-hold-tap";
-            label = "RET_NAV";
+            label = "SL_MO";
+            bindings = <&mo>, <&sl>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <0>;
+        };
+
+        sl_nav: sl_nav {
+            compatible = "zmk,behavior-sticky-key";
+            label = "SL_NAV";
+            bindings = <&mo>;
+            #binding-cells = <1>;
+            release-after-ms = <2000>;
+            quick-release;
+        };
+
+        sl_mo_nav: sl_mo_nav {
+            compatible = "zmk,behavior-hold-tap";
+            label = "SL_MO_NAV";
+            bindings = <&mo>, <&sl_nav>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <180>;
+            quick-tap-ms = <0>;
+        };
+
+        sl_hold_shift: sl_hold_shift {
+            compatible = "zmk,behavior-hold-tap";
+            label = "SL_HOLD_SHIFT";
+            bindings = <&kp>, <&sk>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+        };
+
+        sp_nav: sp_nav {
+            compatible = "zmk,behavior-hold-tap";
+            label = "SP_NAV";
             bindings = <&mo>, <&kp>;
 
             #binding-cells = <2>;
-            flavor = "balanced";
-            tapping-term-ms = <170>;
+            tapping-term-ms = <180>;
             quick-tap-ms = <0>;
+            flavor = "balanced";
         };
     };
 
@@ -201,10 +239,10 @@
 
         english_macos {
             bindings = <
-  &kp V    &kp M                &kp L            &kp C                &kp P                                             &kp X    &kp F                &kp O            &kp U                &kp J
-  &kp S    &hml LEFT_CONTROL T  &hml LEFT_ALT R  &hml LEFT_COMMAND D  &kp Y                                             &kp DOT  &hmr LEFT_COMMAND N  &hmr LEFT_ALT A  &hmr LEFT_CONTROL E  &kp I
-  &kp ESC  &kp K                &kp Q            &kp G                &kp W                                             &kp B    &kp H                &kp SEMI         &kp COMMA            &kp APOS
-                                                 &mo 2                &bs_sym 3 BACKSPACE  &sk LEFT_SHIFT    &kp SPACE  &mo 5    &lt 6 Z
+  &kp V    &kp M                &kp L            &kp C                &kp P                                                                   &kp X           &kp F                &kp O            &kp U                &kp J
+  &kp S    &hml LEFT_CONTROL T  &hml LEFT_ALT R  &hml LEFT_COMMAND D  &kp Y                                                                   &kp DOT         &hmr LEFT_COMMAND N  &hmr LEFT_ALT A  &hmr LEFT_CONTROL E  &kp I
+  &kp ESC  &kp K                &kp Q            &kp G                &kp W                                                                   &kp B           &kp H                &kp SEMI         &kp COMMA            &kp APOS
+                                                 &sl_mo 2 2           &bs_sym 3 BACKSPACE  &sl_hold_shift LEFT_SHIFT LEFT_SHIFT    &kp SPACE  &sl_mo_nav 5 5  &lt 6 Z
             >;
 
             display-name = "eng";
@@ -259,7 +297,7 @@
   &trans            &kp LA(SLASH)     &trans        &trans          &trans                          &kp PAGE_UP    &kp LG(LEFT)  &kp UP    &kp LG(RIGHT)   &kp C_MENU
   &sk LEFT_CONTROL  &kp LEFT_COMMAND  &kp LEFT_ALT  &kp LEFT_SHIFT  &trans                          &kp PAGE_DOWN  &kp LEFT      &kp DOWN  &kp RIGHT       &kp DELETE
   &kp ESC           &kp LG(Z)         &kp LG(C)     &kp LG(V)       &cb_macos                       &trans         &kp RETURN    &kp TAB   &select_string  &trans
-                                                    &trans          &trans     &kp SPACE    &trans  &trans         &trans
+                                                    &trans          &trans     &kp SPACE    &trans  &tog 5         &trans
             >;
 
             label = "nav";
@@ -267,7 +305,7 @@
 
         mouse_media {
             bindings = <
-  &trans  &mkp MB2        &mmv MOVE_UP    &mkp MB1         &msc SCRL_UP                      &kp C_NEXT  &sl 7             &kp C_PP         &trans            &trans
+  &trans  &mkp MB2        &mmv MOVE_UP    &mkp MB1         &msc SCRL_UP                      &kp C_NEXT  &sl_mo 7 7        &kp C_PP         &trans            &trans
   &sl 8   &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_DOWN                    &kp C_PREV  &sk LEFT_COMMAND  &sk LEFT_ALT     &sk LEFT_CONTROL  &sk LEFT_SHIFT
   &trans  &msc SCRL_LEFT  &mkp MB3        &msc SCRL_RIGHT  &trans                            &trans      &kp C_VOL_DN      &kp C_VOLUME_UP  &kp C_MUTE        &trans
                                           &trans           &trans          &trans    &trans  &trans      &trans
@@ -289,10 +327,10 @@
 
         wireless_config {
             bindings = <
-  &trans      &trans  &bootloader  &bt BT_CLR  &trans                    &trans        &trans        &trans        &out OUT_USB  &trans
-  &sys_reset  &trans  &trans       &trans      &trans                    &trans        &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &trans
-  &trans      &trans  &trans       &trans      &trans                    &out OUT_BLE  &trans        &trans        &trans        &trans
-                                   &trans      &trans  &trans    &trans  &bt BT_SEL 0  &trans
+  &trans  &trans  &bootloader  &bt BT_CLR  &trans                    &trans        &trans        &trans        &out OUT_USB  &trans
+  &trans  &trans  &sys_reset   &trans      &trans                    &trans        &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &trans
+  &trans  &trans  &trans       &trans      &trans                    &out OUT_BLE  &trans        &trans        &trans        &trans
+                               &trans      &trans  &trans    &trans  &bt BT_SEL 0  &trans
             >;
 
             label = "wcfg";
