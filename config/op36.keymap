@@ -181,6 +181,12 @@
             timeout-ms = <28>;
             layers = <3>;
         };
+
+        auto_block_combo {
+            bindings = <&auto_block>;
+            key-positions = <26 27>;
+            layers = <0>;
+        };
     };
 
     macros {
@@ -226,6 +232,17 @@
             bindings = <&kp LA(LC(SPACE)) &tog 1>;
             label = "RU_SWITCH";
         };
+
+        auto_block: auto_block {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&kp LEFT_BRACE &kp RIGHT_BRACE &kp LEFT>,
+                <&macro_wait_time 10>,
+                <&kp ENTER>;
+
+            label = "AUTO_BLOCK";
+        };
     };
 
     keymap {
@@ -255,10 +272,10 @@
 
         functional_macos {
             bindings = <
-  &kp LS(LG(S))                   &kp LG(LA(LEFT))  &kp LA(LG(F))               &kp LA(LG(RIGHT))  &trans                               &trans            &kp LS(LA(LC(LG(LEFT))))  &kp LG(H)                  &kp LS(LA(LC(LG(RIGHT))))  &trans
-  &sk_hold LEFT_SHIFT LEFT_SHIFT  &kp LG(LS(TAB))   &sk_hold LEFT_ALT LEFT_ALT  &kp LG(TAB)        &kp RETURN                           &trans            &kp LG(T)                 &kp LG(W)                  &kp LG(L)                  &trans
-  &kp ESC                         &kp LG(Z)         &kp LG(C)                   &kp LG(V)          &cb_macos                            &trans            &kp LS(LG(LEFT_BRACKET))  &kp LS(LG(RIGHT_BRACKET))  &trans                     &trans
-                                                                                &trans             &trans      &trans    &kp LG(SPACE)  &ru_switch_macos  &trans
+  &kp LS(LG(S))                   &kp LG(LA(LEFT))  &kp LA(LG(F))               &kp LA(LG(RIGHT))  &trans                               &trans  &kp LS(LA(LC(LG(LEFT))))  &kp LG(H)                  &kp LS(LA(LC(LG(RIGHT))))  &trans
+  &sk_hold LEFT_SHIFT LEFT_SHIFT  &kp LG(LS(TAB))   &sk_hold LEFT_ALT LEFT_ALT  &kp LG(TAB)        &kp RETURN                           &trans  &kp LG(T)                 &kp LG(W)                  &kp LG(L)                  &trans
+  &kp ESC                         &kp LG(Z)         &kp LG(C)                   &kp LG(V)          &cb_macos                            &trans  &kp LS(LG(LEFT_BRACKET))  &kp LS(LG(RIGHT_BRACKET))  &trans                     &trans
+                                                                                &trans             &trans      &trans    &kp LG(SPACE)  &trans  &ru_switch_macos
             >;
 
             display-name = "func";
@@ -288,10 +305,10 @@
 
         navigation_macos {
             bindings = <
-  &trans                              &kp LA(SLASH)                       &trans        &trans          &trans                          &kp PAGE_UP    &kp K_CMENU  &kp UP    &kp DELETE            &trans
-  &sk_hold LEFT_CONTROL LEFT_CONTROL  &sk_hold LEFT_COMMAND LEFT_COMMAND  &kp LEFT_ALT  &kp LEFT_SHIFT  &trans                          &kp PAGE_DOWN  &kp LEFT     &kp DOWN  &kp RIGHT             &kp LG(I)
-  &kp ESC                             &kp LG(Z)                           &kp LG(C)     &kp LG(V)       &cb_macos                       &trans         &kp RETURN   &kp TAB   &select_string_macos  &trans
-                                                                                        &trans          &trans     &kp SPACE    &trans  &trans         &trans
+  &trans                              &trans                              &trans        &trans          &trans                                      &kp PAGE_UP    &kp K_CMENU  &kp UP    &kp DELETE            &trans
+  &sk_hold LEFT_CONTROL LEFT_CONTROL  &sk_hold LEFT_COMMAND LEFT_COMMAND  &kp LEFT_ALT  &kp LEFT_SHIFT  &trans                                      &kp PAGE_DOWN  &kp LEFT     &kp DOWN  &kp RIGHT             &kp LG(I)
+  &kp ESC                             &kp LG(Z)                           &kp LG(C)     &kp LG(V)       &cb_macos                                   &trans         &kp RETURN   &kp TAB   &select_string_macos  &trans
+                                                                                        &trans          &trans     &hml LEFT_SHIFT SPACE    &trans  &trans         &trans
             >;
 
             label = "nav";
