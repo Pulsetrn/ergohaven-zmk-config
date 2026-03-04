@@ -41,7 +41,7 @@
         nwin: nwin {
             compatible = "zmk,behavior-tri-state";
             #binding-cells = <0>;
-            bindings = <&kp LGUI>, <&kp TAB>, <&kt LGUI>;
+            bindings = <&kt LGUI>, <&kp TAB>, <&kt LGUI>;
             ignored-key-positions = <1>;
         };
 
@@ -49,7 +49,7 @@
         pwin: pwin {
             compatible = "zmk,behavior-tri-state";
             #binding-cells = <0>;
-            bindings = <&kp LGUI>, <&kp LS(TAB)>, <&kt LGUI>;
+            bindings = <&kt LGUI>, <&kp LS(TAB)>, <&kt LGUI>;
             ignored-key-positions = <1>;
         };
 
