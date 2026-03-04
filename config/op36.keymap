@@ -332,10 +332,10 @@
 
         numpad {
             bindings = <
-  &kp EXCL      &kp LT        &kp MINUS      &kp GT    &kp CARET                      &kp HASH             &kp N7      &kp N8  &kp N9  &kp GRAVE
-  &kp UNDER     &kp ASTERISK  &kp SLASH      &trans    &kp EQUAL                      &kp DOT              &kp N1      &kp N2  &kp N3  &kp DOUBLE_QUOTES
-  &kp QUESTION  &kp PLUS      &kp AMPERSAND  &kp PIPE  &kp PERCENT                    &kp AT_SIGN          &kp N4      &kp N5  &kp N6  &kp SINGLE_QUOTE
-                                             &trans    &trans       &trans    &trans  &lt_zero 5 NUMBER_0  &kp DOLLAR
+  &kp EXCL      &kp LT        &kp MINUS      &kp GT    &kp CARET                      &kp HASH        &kp N7      &kp N8  &kp N9  &kp GRAVE
+  &kp UNDER     &kp ASTERISK  &kp SLASH      &trans    &kp EQUAL                      &kp DOT         &kp N1      &kp N2  &kp N3  &kp DOUBLE_QUOTES
+  &kp QUESTION  &kp PLUS      &kp AMPERSAND  &kp PIPE  &kp PERCENT                    &kp AT_SIGN     &kp N4      &kp N5  &kp N6  &kp SINGLE_QUOTE
+                                             &trans    &trans       &trans    &trans  &lt 5 NUMBER_0  &kp DOLLAR
             >;
 
             label = "num";
