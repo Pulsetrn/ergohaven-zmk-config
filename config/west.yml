@@ -1,3 +1,4 @@
+manifest:
   remotes:
     - name: ergohaven
       url-base: https://github.com/ergohaven
