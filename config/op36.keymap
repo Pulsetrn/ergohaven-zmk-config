@@ -42,6 +42,7 @@
             compatible = "zmk,behavior-tri-state";
             #binding-cells = <0>;
             bindings = <&kp LGUI>, <&kp TAB>, <&kt LGUI>;
+            ignored-key-positions = <1>;
         };
 
         // Backward Window Cycle (PWin)
@@ -49,6 +50,7 @@
             compatible = "zmk,behavior-tri-state";
             #binding-cells = <0>;
             bindings = <&kp LGUI>, <&kp LS(TAB)>, <&kt LGUI>;
+            ignored-key-positions = <1>;
         };
 
         hml: home_row_mod_left {
