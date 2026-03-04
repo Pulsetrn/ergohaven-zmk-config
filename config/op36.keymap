@@ -37,6 +37,20 @@
 
 / {
     behaviors {
+        // Forward Window Cycle (NWin)
+        nwin: nwin {
+            compatible = "zmk,behavior-tri-state";
+            #binding-cells = <0>;
+            bindings = <&kp LGUI>, <&kp TAB>, <&kt LGUI>;
+        };
+
+        // Backward Window Cycle (PWin)
+        pwin: pwin {
+            compatible = "zmk,behavior-tri-state";
+            #binding-cells = <0>;
+            bindings = <&kp LGUI>, <&kp LS(TAB)>, <&kt LGUI>;
+        };
+
         hml: home_row_mod_left {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -273,7 +287,7 @@
         functional_macos {
             bindings = <
   &kp LS(LG(S))                   &kp LG(LA(LEFT))  &kp LA(LG(F))               &kp LA(LG(RIGHT))  &trans                               &trans  &kp LS(LA(LC(LG(LEFT))))  &kp LG(H)                  &kp LS(LA(LC(LG(RIGHT))))  &trans
-  &sk_hold LEFT_SHIFT LEFT_SHIFT  &kp LG(LS(TAB))   &sk_hold LEFT_ALT LEFT_ALT  &kp LG(TAB)        &kp RETURN                           &trans  &kp LG(T)                 &kp LG(W)                  &kp LG(L)                  &trans
+  &sk_hold LEFT_SHIFT LEFT_SHIFT  &pwin   &sk_hold LEFT_ALT LEFT_ALT  &nwin        &kp RETURN                           &trans  &kp LG(T)                 &kp LG(W)                  &kp LG(L)                  &trans
   &kp ESC                         &kp LG(Z)         &kp LG(C)                   &kp LG(V)          &cb_macos                            &trans  &kp LS(LG(LEFT_BRACKET))  &kp LS(LG(RIGHT_BRACKET))  &trans                     &trans
                                                                                 &trans             &trans      &trans    &kp LG(SPACE)  &trans  &ru_switch_macos
             >;
