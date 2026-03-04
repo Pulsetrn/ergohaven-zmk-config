@@ -38,18 +38,22 @@
 / {
     behaviors {
         // Forward Window Cycle (NWin)
+
         nwin: nwin {
             compatible = "zmk,behavior-tri-state";
             #binding-cells = <0>;
             bindings = <&kt LGUI>, <&kp TAB>, <&kt LGUI>;
+
             ignored-key-positions = <1>;
         };
 
         // Backward Window Cycle (PWin)
+
         pwin: pwin {
             compatible = "zmk,behavior-tri-state";
             #binding-cells = <0>;
             bindings = <&kt LGUI>, <&kp LS(TAB)>, <&kt LGUI>;
+
             ignored-key-positions = <1>;
         };
 
@@ -159,6 +163,24 @@
             bindings = <&kp>, <&kp>;
 
             label = "HMR_SHIFT";
+        };
+
+        lt_zero: lt_zero {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LT_ZERO";
+            bindings = <&mo>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+        };
+
+        space_shift: space_shift {
+            compatible = "zmk,behavior-hold-tap";
+            label = "SPACE_SHIFT";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
         };
     };
 
@@ -289,7 +311,7 @@
         functional_macos {
             bindings = <
   &kp LS(LG(S))                   &kp LG(LA(LEFT))  &kp LA(LG(F))               &kp LA(LG(RIGHT))  &trans                               &trans  &kp LS(LA(LC(LG(LEFT))))  &kp LG(H)                  &kp LS(LA(LC(LG(RIGHT))))  &trans
-  &sk_hold LEFT_SHIFT LEFT_SHIFT  &pwin   &sk_hold LEFT_ALT LEFT_ALT  &nwin        &kp RETURN                           &trans  &kp LG(T)                 &kp LG(W)                  &kp LG(L)                  &trans
+  &sk_hold LEFT_SHIFT LEFT_SHIFT  &pwin             &sk_hold LEFT_ALT LEFT_ALT  &nwin              &kp RETURN                           &trans  &kp LG(T)                 &kp LG(W)                  &kp LG(L)                  &trans
   &kp ESC                         &kp LG(Z)         &kp LG(C)                   &kp LG(V)          &cb_macos                            &trans  &kp LS(LG(LEFT_BRACKET))  &kp LS(LG(RIGHT_BRACKET))  &trans                     &trans
                                                                                 &trans             &trans      &trans    &kp LG(SPACE)  &trans  &ru_switch_macos
             >;
@@ -299,10 +321,10 @@
 
         symbols {
             bindings = <
-  &kp EXCL      &kp LT        &kp MINUS      &kp GT    &kp CARET                      &kp HASH        &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp BACKSLASH  &kp TILDE
-  &kp UNDER     &kp ASTERISK  &kp SLASH      &mo 4     &kp EQUAL                      &kp DOT         &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp COLON      &kp DOUBLE_QUOTES
-  &kp QUESTION  &kp PLUS      &kp AMPERSAND  &kp PIPE  &kp PERCENT                    &kp AT_SIGN     &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp COMMA      &kp SINGLE_QUOTE
-                                             &trans    &trans       &trans    &trans  &lt 5 NUMBER_0  &kp DOLLAR
+  &kp EXCL      &kp LT        &kp MINUS      &kp GT    &kp CARET                      &kp HASH             &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp BACKSLASH  &kp TILDE
+  &kp UNDER     &kp ASTERISK  &kp SLASH      &mo 4     &kp EQUAL                      &kp DOT              &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp COLON      &kp DOUBLE_QUOTES
+  &kp QUESTION  &kp PLUS      &kp AMPERSAND  &kp PIPE  &kp PERCENT                    &kp AT_SIGN          &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp COMMA      &kp SINGLE_QUOTE
+                                             &trans    &trans       &trans    &trans  &lt_zero 5 NUMBER_0  &kp DOLLAR
             >;
 
             label = "sym";
@@ -310,10 +332,10 @@
 
         numpad {
             bindings = <
-  &kp EXCL      &kp LT        &kp MINUS      &kp GT    &kp CARET                      &kp HASH        &kp N7      &kp N8  &kp N9  &kp GRAVE
-  &kp UNDER     &kp ASTERISK  &kp SLASH      &trans    &kp EQUAL                      &kp DOT         &kp N1      &kp N2  &kp N3  &kp DOUBLE_QUOTES
-  &kp QUESTION  &kp PLUS      &kp AMPERSAND  &kp PIPE  &kp PERCENT                    &kp AT_SIGN     &kp N4      &kp N5  &kp N6  &kp SINGLE_QUOTE
-                                             &trans    &trans       &trans    &trans  &lt 5 NUMBER_0  &kp DOLLAR
+  &kp EXCL      &kp LT        &kp MINUS      &kp GT    &kp CARET                      &kp HASH             &kp N7      &kp N8  &kp N9  &kp GRAVE
+  &kp UNDER     &kp ASTERISK  &kp SLASH      &trans    &kp EQUAL                      &kp DOT              &kp N1      &kp N2  &kp N3  &kp DOUBLE_QUOTES
+  &kp QUESTION  &kp PLUS      &kp AMPERSAND  &kp PIPE  &kp PERCENT                    &kp AT_SIGN          &kp N4      &kp N5  &kp N6  &kp SINGLE_QUOTE
+                                             &trans    &trans       &trans    &trans  &lt_zero 5 NUMBER_0  &kp DOLLAR
             >;
 
             label = "num";
@@ -321,10 +343,10 @@
 
         navigation_macos {
             bindings = <
-  &trans                              &trans                              &trans        &trans          &trans                                      &kp PAGE_UP    &kp K_CMENU  &kp UP    &kp DELETE            &trans
-  &sk_hold LEFT_CONTROL LEFT_CONTROL  &sk_hold LEFT_COMMAND LEFT_COMMAND  &kp LEFT_ALT  &kp LEFT_SHIFT  &trans                                      &kp PAGE_DOWN  &kp LEFT     &kp DOWN  &kp RIGHT             &kp LG(I)
-  &kp ESC                             &kp LG(Z)                           &kp LG(C)     &kp LG(V)       &cb_macos                                   &trans         &kp RETURN   &kp TAB   &select_string_macos  &trans
-                                                                                        &trans          &trans     &hml LEFT_SHIFT SPACE    &trans  &trans         &trans
+  &trans                              &trans                              &trans        &trans          &trans                                              &kp PAGE_UP    &kp K_CMENU  &kp UP    &kp DELETE            &trans
+  &sk_hold LEFT_CONTROL LEFT_CONTROL  &sk_hold LEFT_COMMAND LEFT_COMMAND  &kp LEFT_ALT  &kp LEFT_SHIFT  &trans                                              &kp PAGE_DOWN  &kp LEFT     &kp DOWN  &kp RIGHT             &kp LG(I)
+  &kp ESC                             &kp LG(Z)                           &kp LG(C)     &kp LG(V)       &cb_macos                                           &trans         &kp RETURN   &kp TAB   &select_string_macos  &trans
+                                                                                        &trans          &trans     &space_shift LEFT_SHIFT SPACE    &trans  &trans         &trans
             >;
 
             label = "nav";
