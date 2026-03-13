@@ -310,10 +310,10 @@
 
         functional_macos {
             bindings = <
-  &kp LS(LG(S))                   &kp LG(LA(LEFT))  &kp LA(LG(F))               &kp LA(LG(RIGHT))  &trans                               &trans  &kp LS(LA(LC(LG(LEFT))))  &kp LG(H)                  &kp LS(LA(LC(LG(RIGHT))))  &trans
-  &sk_hold LEFT_SHIFT LEFT_SHIFT  &pwin             &sk_hold LEFT_ALT LEFT_ALT  &nwin              &kp RETURN                           &trans  &kp LG(T)                 &kp LG(W)                  &kp LG(L)                  &trans
-  &kp ESC                         &kp LG(Z)         &kp LG(C)                   &kp LG(V)          &cb_macos                            &trans  &kp LS(LG(LEFT_BRACKET))  &kp LS(LG(RIGHT_BRACKET))  &trans                     &trans
-                                                                                &trans             &trans      &trans    &kp LG(SPACE)  &trans  &ru_switch_macos
+  &kp LS(LG(S))  &trans     &kp LG(T)    &trans     &trans                              &trans  &kp LA(NUMBER_5)          &kp LA(N6)                 &kp LA(N7)        &kp LA(N8)
+  &kp LG(W)      &pwin      &kp LA(TAB)  &nwin      &trans                              &trans  &kp LA(N1)                &kp LA(NUMBER_2)           &kp LA(NUMBER_3)  &kp LA(NUMBER_4)
+  &kp ESC        &kp LG(Z)  &kp LG(C)    &kp LG(V)  &cb_macos                           &trans  &kp LS(LG(LEFT_BRACKET))  &kp LS(LG(RIGHT_BRACKET))  &trans            &trans
+                                         &trans     &trans     &trans    &kp LG(SPACE)  &trans  &ru_switch_macos
             >;
 
             display-name = "func";
