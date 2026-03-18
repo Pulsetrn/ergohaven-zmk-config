@@ -182,6 +182,24 @@
             #binding-cells = <2>;
             tapping-term-ms = <200>;
         };
+
+        slash_semicolon: slash_semicolon {
+            compatible = "zmk,behavior-mod-morph";
+            label = "SLASH_SEMICOLON";
+            bindings = <&kp SLASH>, <&kp SEMICOLON>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        quote_grave: quote_grave {
+            compatible = "zmk,behavior-mod-morph";
+            label = "QUOTE_GRAVE";
+            bindings = <&kp SINGLE_QUOTE>, <&kp GRAVE>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
     };
 
     combos {
@@ -288,9 +306,9 @@
 
         main_macos {
             bindings = <
-  &kp V    &kp M                &kp L            &kp C                    &kp P                                                             &kp X    &kp F                    &kp O            &kp U                &kp J
-  &kp S    &hml LEFT_COMMAND T  &hml LEFT_ALT R  &hml_shift LEFT_SHIFT D  &kp Y                                                             &kp DOT  &hmr_shift LEFT_SHIFT N  &hmr LEFT_ALT A  &hmr LEFT_COMMAND E  &kp I
-  &kp ESC  &kp K                &kp Q            &hml LEFT_CONTROL G      &kp W                                                             &kp B    &hmr LEFT_CONTROL H      &kp SEMI         &kp COMMA            &kp APOS
+  &kp V    &kp M                &kp L            &kp C                    &kp P                                                             &kp X    &kp F                    &kp O             &kp U                &kp J
+  &kp S    &hml LEFT_COMMAND T  &hml LEFT_ALT R  &hml_shift LEFT_SHIFT D  &kp Y                                                             &kp DOT  &hmr_shift LEFT_SHIFT N  &hmr LEFT_ALT A   &hmr LEFT_COMMAND E  &kp I
+  &kp ESC  &kp K                &kp Q            &hml LEFT_CONTROL G      &kp W                                                             &kp B    &hmr LEFT_CONTROL H      &slash_semicolon  &kp COMMA            &quote_grave
                                                  &mo 2                    &bs_sym 3 BACKSPACE  &sk_hold LEFT_SHIFT LEFT_SHIFT    &kp SPACE  &mo 5    &lt 6 Z
             >;
 
@@ -310,8 +328,8 @@
 
         functional_macos {
             bindings = <
-  &kp LS(LG(S))  &trans     &kp LG(T)    &trans     &trans                              &trans  &kp LA(NUMBER_5)          &kp LA(N6)                 &kp LA(N7)        &kp LA(N8)
-  &kp LG(W)      &pwin      &kp LA(TAB)  &nwin      &trans                              &trans  &kp LA(N1)                &kp LA(NUMBER_2)           &kp LA(NUMBER_3)  &kp LA(NUMBER_4)
+  &kp LS(LG(S))  &kp LG(W)  &kp LG(T)    &trans     &trans                              &trans  &kp LA(NUMBER_5)          &kp LA(N6)                 &kp LA(N7)        &kp LA(N8)
+  &trans         &pwin      &kp LA(TAB)  &nwin      &trans                              &trans  &kp LA(N1)                &kp LA(NUMBER_2)           &kp LA(NUMBER_3)  &kp LA(NUMBER_4)
   &kp ESC        &kp LG(Z)  &kp LG(C)    &kp LG(V)  &cb_macos                           &trans  &kp LS(LG(LEFT_BRACKET))  &kp LS(LG(RIGHT_BRACKET))  &trans            &trans
                                          &trans     &trans     &trans    &kp LG(SPACE)  &trans  &ru_switch_macos
             >;
@@ -321,10 +339,10 @@
 
         symbols {
             bindings = <
-  &kp EXCL      &kp LT        &kp MINUS      &kp GT    &kp CARET                      &kp HASH             &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp BACKSLASH  &kp TILDE
-  &kp UNDER     &kp ASTERISK  &kp SLASH      &mo 4     &kp EQUAL                      &kp DOT              &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp COLON      &kp DOUBLE_QUOTES
-  &kp QUESTION  &kp PLUS      &kp AMPERSAND  &kp PIPE  &kp PERCENT                    &kp AT_SIGN          &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp COMMA      &kp SINGLE_QUOTE
-                                             &trans    &trans       &trans    &trans  &lt_zero 5 NUMBER_0  &kp DOLLAR
+  &kp EXCL      &kp LT        &kp AMPERSAND  &kp GT      &kp CARET                      &kp HASH             &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp BACKSLASH  &kp TILDE
+  &kp UNDER     &kp ASTERISK  &kp MINUS      &mo 4       &kp EQUAL                      &kp DOT              &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp COLON      &kp DOUBLE_QUOTES
+  &kp QUESTION  &kp PLUS      &kp PIPE       &kp DOLLAR  &kp PERCENT                    &kp AT_SIGN          &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp COMMA      &kp SINGLE_QUOTE
+                                             &trans      &trans       &trans    &trans  &lt_zero 5 NUMBER_0  &trans
             >;
 
             label = "sym";
@@ -332,10 +350,10 @@
 
         numpad {
             bindings = <
-  &kp EXCL      &kp LT        &kp MINUS      &kp GT    &kp CARET                      &kp HASH        &kp N7      &kp N8  &kp N9  &kp GRAVE
-  &kp UNDER     &kp ASTERISK  &kp SLASH      &trans    &kp EQUAL                      &kp DOT         &kp N1      &kp N2  &kp N3  &kp DOUBLE_QUOTES
-  &kp QUESTION  &kp PLUS      &kp AMPERSAND  &kp PIPE  &kp PERCENT                    &kp AT_SIGN     &kp N4      &kp N5  &kp N6  &kp SINGLE_QUOTE
-                                             &trans    &trans       &trans    &trans  &lt 5 NUMBER_0  &kp DOLLAR
+  &kp EXCL      &kp LT        &kp AMPERSAND  &kp GT      &kp CARET                      &kp HASH        &kp N7  &kp N8  &kp N9  &kp GRAVE
+  &kp UNDER     &kp ASTERISK  &kp MINUS      &trans      &kp EQUAL                      &kp DOT         &kp N1  &kp N2  &kp N3  &kp DOUBLE_QUOTES
+  &kp QUESTION  &kp PLUS      &kp PIPE       &kp DOLLAR  &kp PERCENT                    &kp AT_SIGN     &kp N4  &kp N5  &kp N6  &kp SINGLE_QUOTE
+                                             &trans      &trans       &trans    &trans  &lt 5 NUMBER_0  &trans
             >;
 
             label = "num";
