@@ -306,10 +306,10 @@
 
         main_macos {
             bindings = <
-  &kp V    &kp M                &kp L            &kp C                    &kp P                                                                &kp X              &kp F                    &kp O             &kp U                &kp J
-  &kp S    &hml LEFT_COMMAND T  &hml LEFT_ALT R  &hml_shift LEFT_SHIFT D  &kp Y                                                                &kp DOT            &hmr_shift LEFT_SHIFT N  &hmr LEFT_ALT A   &hmr LEFT_COMMAND E  &kp I
-  &kp ESC  &kp K                &kp Q            &hml LEFT_CONTROL G      &kp W                                                                &kp B              &hmr LEFT_CONTROL H      &slash_semicolon  &kp COMMA            &quote_grave
-                                                 &mo 2                    &bs_sym_hp 3 BACKSPACE  &sk_hold LEFT_SHIFT LEFT_SHIFT    &kp SPACE  &lt_ret_nav 5 RET  &lt 6 Z
+  &kp V    &kp M                &kp L            &kp C                    &kp P                                                             &kp X    &kp F                    &kp O             &kp U                &kp J
+  &kp S    &hml LEFT_COMMAND T  &hml LEFT_ALT R  &hml_shift LEFT_SHIFT D  &kp Y                                                             &kp DOT  &hmr_shift LEFT_SHIFT N  &hmr LEFT_ALT A   &hmr LEFT_COMMAND E  &kp I
+  &kp ESC  &kp K                &kp Q            &hml LEFT_CONTROL G      &kp W                                                             &kp B    &hmr LEFT_CONTROL H      &slash_semicolon  &kp COMMA            &quote_grave
+                                                 &mo 2                    &bs_sym 3 BACKSPACE  &sk_hold LEFT_SHIFT LEFT_SHIFT    &kp SPACE  &mo 5    &lt 6 Z
             >;
 
             display-name = "eng";
