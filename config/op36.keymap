@@ -111,9 +111,9 @@
             bindings = <&kp DOT>, <&kp LS(N6)>;
         };
 
-        bs_sym: bs_sym {
+        bs_layer: bs_layer {
             compatible = "zmk,behavior-hold-tap";
-            label = "BS_SYM";
+            label = "BS_LAYER";
             bindings = <&mo>, <&kp>;
 
             #binding-cells = <2>;
@@ -408,10 +408,10 @@
 
         main_macos {
             bindings = <
-  &kp V    &kp M                &kp L            &kp C                    &kp P                                                             &kp X    &kp F                    &kp O                &kp U                &kp J
-  &kp S    &hml LEFT_COMMAND T  &hml LEFT_ALT R  &hml_shift LEFT_SHIFT D  &kp Y                                                             &kp DOT  &hmr_shift LEFT_SHIFT N  &hmr_alt LEFT_ALT A  &hmr LEFT_COMMAND E  &kp I
-  &kp ESC  &kp K                &kp Q            &hml LEFT_CONTROL G      &kp W                                                             &kp B    &hmr LEFT_CONTROL H      &slash_semicolon     &kp COMMA            &quote_grave
-                                                 &mo 2                    &bs_sym 6 BACKSPACE  &sk_hold LEFT_SHIFT LEFT_SHIFT    &kp SPACE  &mo 7    &lt 8 Z
+  &kp V    &kp M                &kp L            &kp C                    &kp P                                                               &kp X    &kp F                    &kp O                &kp U                &kp J
+  &kp S    &hml LEFT_COMMAND T  &hml LEFT_ALT R  &hml_shift LEFT_SHIFT D  &kp Y                                                               &kp DOT  &hmr_shift LEFT_SHIFT N  &hmr_alt LEFT_ALT A  &hmr LEFT_COMMAND E  &kp I
+  &kp ESC  &kp K                &kp Q            &hml LEFT_CONTROL G      &kp W                                                               &kp B    &hmr LEFT_CONTROL H      &slash_semicolon     &kp COMMA            &quote_grave
+                                                 &mo 2                    &bs_layer 6 BACKSPACE  &sk_hold LEFT_SHIFT LEFT_SHIFT    &kp SPACE  &mo 7    &lt 8 Z
             >;
 
             display-name = "eng";
@@ -452,10 +452,10 @@
 
         draw {
             bindings = <
-  &kp K    &kp R      &kp O          &kp L         &kp A                                     &trans  &trans  &trans  &trans  &trans
-  &kp S    &kp V      &kp P          &kp E         &kp T                                     &trans  &trans  &trans  &trans  &trans
-  &kp ESC  &kp LG(Z)  &kp LG(MINUS)  &kp LG(PLUS)  &kp LG(N0)                                &trans  &trans  &trans  &trans  &trans
-                                     &tog 4        &bs_sym 5 BACKSPACE  &kp SPACE    &trans  &trans  &trans
+  &kp L    &kp A      &kp LG(MINUS)  &kp LG(PLUS)  &kp R                                       &trans  &trans  &trans  &trans  &trans
+  &kp S    &kp E      &kp P          &kp V         &kp T                                       &trans  &trans  &trans  &trans  &trans
+  &kp ESC  &kp LG(Z)  &kp LG(C)      &kp LG(V)     &kp LG(N0)                                  &trans  &trans  &trans  &trans  &trans
+                                     &tog 4        &bs_layer 5 BACKSPACE  &kp SPACE    &trans  &trans  &trans
             >;
 
             label = "draw";
@@ -465,7 +465,7 @@
             bindings = <
   &kp LS(N1)  &kp LS(N2)     &kp LS(N3)  &kp LS(N4)  &kp LS(N5)                    &trans  &trans  &trans  &trans  &trans
   &kp S       &kp B          &kp X       &kp E       &kp R                         &trans  &trans  &trans  &trans  &trans
-  &kp ESC     &kp LS(LG(Z))  &kp LG(C)   &kp LG(V)   &kp LG(N1)                    &trans  &trans  &trans  &trans  &trans
+  &kp ESC     &kp LS(LG(Z))  &kp O       &kp D       &kp LG(N1)                    &trans  &trans  &trans  &trans  &trans
                                          &trans      &trans      &trans    &trans  &trans  &trans
             >;
 
