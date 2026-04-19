@@ -118,7 +118,7 @@
 
             #binding-cells = <2>;
             flavor = "balanced";
-            tapping-term-ms = <140>;
+            tapping-term-ms = <160>;
             quick-tap-ms = <0>;
         };
 
@@ -229,13 +229,13 @@
         enter_combo {
             bindings = <&kp ENTER>;
             key-positions = <34 26>;
-            layers = <0 1 7 2 6 3>;
+            layers = <0 1 7 2 3>;
         };
 
         tab_combo {
             bindings = <&kp TAB>;
             key-positions = <34 27>;
-            layers = <0 1 2 3 6 7>;
+            layers = <0 1 2 3 7>;
         };
 
         nav_toggle_combo {
@@ -248,7 +248,7 @@
         tab_enter_combo {
             bindings = <&tab_enter>;
             key-positions = <34 26 27>;
-            layers = <0 1 2 3 6 7>;
+            layers = <0 1 2 3 7>;
             timeout-ms = <25>;
         };
 
@@ -335,7 +335,7 @@
         select_string_combo {
             bindings = <&select_string_macos>;
             key-positions = <34 28>;
-            layers = <0 1 2 3 6 7>;
+            layers = <0 1 2 3 7>;
         };
     };
 
@@ -452,10 +452,10 @@
 
         draw {
             bindings = <
-  &kp L    &kp A      &kp LG(MINUS)  &kp LG(PLUS)  &kp R                                       &trans  &trans  &trans  &trans  &trans
-  &kp S    &kp E      &kp P          &kp V         &kp T                                       &trans  &trans  &trans  &trans  &trans
-  &kp ESC  &kp LG(Z)  &kp LG(C)      &kp LG(V)     &kp LG(N0)                                  &trans  &trans  &trans  &trans  &trans
-                                     &tog 4        &bs_layer 5 BACKSPACE  &kp SPACE    &trans  &trans  &trans
+  &kp LG(PLUS)  &kp LG(MINUS)    &kp LG(N0)  &kp LS(N1)               &kp R                                       &trans  &trans  &trans  &trans  &trans
+  &kp S         &hml LEFT_GUI E  &kp P       &hml_shift LEFT_SHIFT V  &kp T                                       &trans  &trans  &trans  &trans  &trans
+  &kp ESC       &kp LG(Z)        &kp LG(C)   &kp LG(V)                &kp LS(NUMBER_2)                            &trans  &trans  &trans  &trans  &trans
+                                             &tog 4                   &bs_layer 5 BACKSPACE  &kp SPACE    &trans  &trans  &trans
             >;
 
             label = "draw";
@@ -463,10 +463,10 @@
 
         draw_func {
             bindings = <
-  &kp LS(N1)  &kp LS(N2)     &kp LS(N3)  &kp LS(N4)  &kp LS(N5)                    &trans  &trans  &trans  &trans  &trans
-  &kp S       &kp B          &kp X       &kp E       &kp R                         &trans  &trans  &trans  &trans  &trans
-  &kp ESC     &kp LS(LG(Z))  &kp O       &kp D       &kp LG(N1)                    &trans  &trans  &trans  &trans  &trans
-                                         &trans      &trans      &trans    &trans  &trans  &trans
+  &kp D    &kp L          &kp O  &kp A     &kp F                          &trans  &trans  &trans  &trans  &trans
+  &kp S    &kp B          &kp X  &kp E     &kp R                          &trans  &trans  &trans  &trans  &trans
+  &kp ESC  &kp LS(LG(Z))  &kp Q  &mkp MB2  &kp LG(SQT)                    &trans  &trans  &trans  &trans  &trans
+                                 &trans    &trans       &trans    &trans  &trans  &trans
             >;
 
             label = "draw_func";
