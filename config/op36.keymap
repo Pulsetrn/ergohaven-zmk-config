@@ -215,13 +215,22 @@
             hold-trigger-on-release;
             label = "HMR_ALT";
         };
+
+        six_comma: six_comma {
+            compatible = "zmk,behavior-mod-morph";
+            label = "SIX_COMMA";
+            bindings = <&kp N6>, <&kp COMMA>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
+        };
     };
 
     combos {
         compatible = "zmk,combos";
 
         yio {
-            bindings = <&kp GRAVE>;
+            bindings = <&kp NUBS>;
             key-positions = <23 24>;
             layers = <1>;
         };
@@ -401,6 +410,20 @@
 
             label = "TAB_ENTER";
         };
+
+        tog_4_text: tog_4_text {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&tog 4 &kp T>;
+            label = "TOG_4_TEXT";
+        };
+
+        zoom_80: zoom_80 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LG(N0) &kp LG(MINUS) &kp LG(MINUS)>;
+            label = "ZOOM_80";
+        };
     };
 
     keymap {
@@ -430,10 +453,10 @@
 
         functional_macos {
             bindings = <
-  &kp LA(T)   &kp LG(W)  &kp LG(T)    &kp LA(F)  &trans                                  &trans  &kp LA(NUMBER_5)          &kp LA(N6)                 &kp LA(N7)        &kp LA(N8)
+  &kp LA(T)   &kp LG(W)  &kp LG(T)    &kp LA(F)  &tog 4                                  &trans  &kp LA(NUMBER_5)          &kp LA(N6)                 &kp LA(N7)        &kp LA(N8)
   &sl_mo 3 3  &pwin      &kp LA(TAB)  &nwin      &kp LS(LG(S))                           &trans  &kp LA(N1)                &kp LA(NUMBER_2)           &kp LA(NUMBER_3)  &kp LA(NUMBER_4)
   &kp ESC     &kp LG(Z)  &kp LG(C)    &kp LG(V)  &cb_macos                               &trans  &kp LS(LG(LEFT_BRACKET))  &kp LS(LG(RIGHT_BRACKET))  &kp LA(COMMA)     &kp LA(FSLH)
-                                      &trans     &trans         &tog 4    &kp LG(SPACE)  &trans  &ru_switch_macos
+                                      &trans     &trans         &trans    &kp LG(SPACE)  &trans  &ru_switch_macos
             >;
 
             display-name = "func";
@@ -441,10 +464,10 @@
 
         tiling {
             bindings = <
-  &trans                          &trans            &kp LA(LG(UP))    &trans             &trans                       &trans  &kp LS(LA(N5))  &kp LS(LA(N6))  &kp LS(LA(N7))  &kp LS(LA(N8))
-  &sk_hold LEFT_SHIFT LEFT_SHIFT  &kp LA(LG(LEFT))  &kp LA(LG(DOWN))  &kp LA(LG(RIGHT))  &kp LA(P)                    &trans  &kp LA(LS(N1))  &kp LS(LA(N2))  &kp LS(LA(N3))  &kp LS(LA(N4))
-  &kp ESC                         &kp LS(LG(Z))     &kp LA(W)         &kp LA(Y)          &trans                       &trans  &trans          &trans          &trans          &trans
-                                                                      &trans             &trans     &trans    &trans  &trans  &trans
+  &trans                          &trans         &trans  &trans     &trans                       &trans  &kp LS(LA(N5))  &kp LS(LA(N6))  &kp LS(LA(N7))  &kp LS(LA(N8))
+  &sk_hold LEFT_SHIFT LEFT_SHIFT  &trans         &trans  &kp LA(W)  &kp LA(P)                    &trans  &kp LA(LS(N1))  &kp LS(LA(N2))  &kp LS(LA(N3))  &kp LS(LA(N4))
+  &kp ESC                         &kp LS(LG(Z))  &trans  &kp LA(Y)  &trans                       &trans  &trans          &trans          &trans          &trans
+                                                         &trans     &trans     &trans    &trans  &trans  &trans
             >;
 
             label = "tiling";
@@ -452,10 +475,10 @@
 
         draw {
             bindings = <
-  &kp LG(PLUS)  &kp LG(MINUS)    &kp LG(N0)  &kp LS(N1)               &kp R                                       &trans  &trans  &trans  &trans  &trans
-  &kp S         &hml LEFT_GUI E  &kp P       &hml_shift LEFT_SHIFT V  &kp T                                       &trans  &trans  &trans  &trans  &trans
-  &kp ESC       &kp LG(Z)        &kp LG(C)   &kp LG(V)                &kp LS(NUMBER_2)                            &trans  &trans  &trans  &trans  &trans
-                                             &tog 4                   &bs_layer 5 BACKSPACE  &kp SPACE    &trans  &trans  &trans
+  &kp LG(PLUS)  &kp LG(MINUS)    &zoom_80         &kp LS(N1)               &kp R                                       &trans  &trans  &trans  &trans  &trans
+  &kp S         &hml LEFT_GUI E  &hml LEFT_ALT P  &hml_shift LEFT_SHIFT V  &tog_4_text                                 &trans  &trans  &trans  &trans  &trans
+  &kp ESC       &kp LG(Z)        &kp LG(C)        &kp LG(V)                &kp LS(NUMBER_2)                            &trans  &trans  &trans  &trans  &trans
+                                                  &none                    &bs_layer 5 BACKSPACE  &kp SPACE    &trans  &tog 4  &trans
             >;
 
             label = "draw";
@@ -474,10 +497,10 @@
 
         numpad {
             bindings = <
-  &kp EXCL      &kp LT        &kp AMPERSAND  &kp GT      &kp CARET                      &kp HASH             &kp N7    &kp N8  &kp N9  &kp TILDE
-  &kp UNDER     &kp ASTERISK  &kp MINUS      &kp COLON   &kp EQUAL                      &kp DOT              &kp N1    &kp N2  &kp N3  &kp DQT
-  &kp QUESTION  &kp PLUS      &kp PIPE       &kp DOLLAR  &kp PERCENT                    &kp AT_SIGN          &kp N4    &kp N5  &kp N6  &kp SINGLE_QUOTE
-                                             &trans      &trans       &trans    &trans  &lt_zero 7 NUMBER_0  &kp NUBS
+  &kp EXCL      &kp LT        &kp AMPERSAND  &kp GT                       &kp CARET                      &kp HASH             &kp N7    &kp N8  &kp N9      &kp TILDE
+  &kp UNDER     &kp ASTERISK  &kp MINUS      &hml_shift LEFT_SHIFT COLON  &kp EQUAL                      &kp DOT              &kp N1    &kp N2  &kp N3      &kp DQT
+  &kp QUESTION  &kp PLUS      &kp PIPE       &kp DOLLAR                   &kp PERCENT                    &kp AT_SIGN          &kp N4    &kp N5  &six_comma  &kp SINGLE_QUOTE
+                                             &trans                       &trans       &trans    &trans  &lt_zero 7 NUMBER_0  &kp NUBS
             >;
 
             label = "num";
