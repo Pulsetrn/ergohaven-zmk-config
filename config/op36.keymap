@@ -238,17 +238,17 @@
         enter_combo {
             bindings = <&kp ENTER>;
             key-positions = <34 26>;
-            layers = <0 1 7 2 3>;
+            layers = <0 1 6 2>;
         };
 
         tab_combo {
             bindings = <&kp TAB>;
             key-positions = <34 27>;
-            layers = <0 1 2 3 7>;
+            layers = <0 1 2 6>;
         };
 
         nav_toggle_combo {
-            bindings = <&tog 7>;
+            bindings = <&tog 6>;
             key-positions = <34 33>;
             layers = <0 1>;
             timeout-ms = <20>;
@@ -257,24 +257,24 @@
         tab_enter_combo {
             bindings = <&tab_enter>;
             key-positions = <34 26 27>;
-            layers = <0 1 2 3 7>;
+            layers = <0 1 2 6>;
             timeout-ms = <25>;
         };
 
         left_par_combo {
             bindings = <&kp LPAR>;
             key-positions = <16 17>;
-            timeout-ms = <18>;
+            timeout-ms = <14>;
             require-prior-idle-ms = <150>;
-            layers = <0 1 2 3 6>;
+            layers = <0 1 2 5>;
         };
 
         right_par_combo {
             bindings = <&kp RPAR>;
             key-positions = <17 18>;
-            timeout-ms = <18>;
+            timeout-ms = <14>;
             require-prior-idle-ms = <150>;
-            layers = <0 1 2 3 6>;
+            layers = <0 1 2 5>;
         };
 
         both_par_combo {
@@ -282,7 +282,7 @@
             key-positions = <17 18 16>;
             timeout-ms = <18>;
             require-prior-idle-ms = <150>;
-            layers = <0 1 2 3 6>;
+            layers = <0 1 2 5>;
         };
 
         both_bracket_combo {
@@ -290,7 +290,7 @@
             key-positions = <6 7 8>;
             timeout-ms = <18>;
             require-prior-idle-ms = <150>;
-            layers = <0 1 2 3 6>;
+            layers = <0 1 2 5>;
         };
 
         both_braces_combo {
@@ -298,7 +298,7 @@
             key-positions = <26 28 27>;
             timeout-ms = <18>;
             require-prior-idle-ms = <150>;
-            layers = <0 1 2 3 6>;
+            layers = <0 1 2 5>;
         };
 
         block_combo {
@@ -306,7 +306,7 @@
             key-positions = <26 28>;
             timeout-ms = <18>;
             require-prior-idle-ms = <150>;
-            layers = <0 1 2 3 6>;
+            layers = <0 1 2 5>;
         };
 
         left_bracket_combo {
@@ -314,7 +314,7 @@
             key-positions = <6 7>;
             timeout-ms = <18>;
             require-prior-idle-ms = <150>;
-            layers = <0 1 2 3 6>;
+            layers = <0 1 2 5>;
         };
 
         right_bracket_combo {
@@ -322,7 +322,7 @@
             key-positions = <7 8>;
             timeout-ms = <18>;
             require-prior-idle-ms = <150>;
-            layers = <0 1 2 3 6>;
+            layers = <0 1 2 5>;
         };
 
         left_brace_combo {
@@ -330,7 +330,7 @@
             key-positions = <26 27>;
             timeout-ms = <18>;
             require-prior-idle-ms = <150>;
-            layers = <0 1 2 3 6>;
+            layers = <0 1 2 5>;
         };
 
         right_brace_combo {
@@ -338,13 +338,13 @@
             key-positions = <27 28>;
             timeout-ms = <18>;
             require-prior-idle-ms = <150>;
-            layers = <0 1 2 3 6>;
+            layers = <0 1 2 5>;
         };
 
         select_string_combo {
             bindings = <&select_string_macos>;
             key-positions = <34 28>;
-            layers = <0 1 2 3 7>;
+            layers = <0 1 2 6>;
         };
     };
 
@@ -414,15 +414,15 @@
         tog_4_text: tog_4_text {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&tog 4 &kp T>;
+            bindings = <&tog 3 &kp T>;
             label = "TOG_4_TEXT";
         };
 
-        zoom_80: zoom_80 {
+        zoom: zoom {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LG(N0) &kp LG(MINUS) &kp LG(MINUS)>;
-            label = "ZOOM_80";
+            bindings = <&kp LG(N0) &kp LG(MINUS) &kp LG(MINUS) &kp LG(MINUS) &kp LG(MINUS) &kp LG(MINUS) &kp LG(MINUS)>;
+            label = "ZOOM";
         };
     };
 
@@ -434,7 +434,7 @@
   &kp V    &kp M                &kp L            &kp C                    &kp P                                                               &kp X    &kp F                    &kp O                &kp U                &kp J
   &kp S    &hml LEFT_COMMAND T  &hml LEFT_ALT R  &hml_shift LEFT_SHIFT D  &kp Y                                                               &kp DOT  &hmr_shift LEFT_SHIFT N  &hmr_alt LEFT_ALT A  &hmr LEFT_COMMAND E  &kp I
   &kp ESC  &kp K                &kp Q            &hml LEFT_CONTROL G      &kp W                                                               &kp B    &hmr LEFT_CONTROL H      &slash_semicolon     &kp COMMA            &quote_grave
-                                                 &mo 2                    &bs_layer 6 BACKSPACE  &sk_hold LEFT_SHIFT LEFT_SHIFT    &kp SPACE  &mo 7    &lt 8 Z
+                                                 &mo 2                    &bs_layer 5 BACKSPACE  &sk_hold LEFT_SHIFT LEFT_SHIFT    &kp SPACE  &mo 6    &lt 7 Z
             >;
 
             display-name = "eng";
@@ -445,7 +445,7 @@
   &kp Q  &kp W                &kp E            &kp R                &kp T                     &kp Y    &kp U                    &kp I                &kp O            &kp P
   &kp A  &hml LEFT_COMMAND S  &hml LEFT_ALT D  &td_colon            &kp G                     &td_dot  &hmr_shift LEFT_SHIFT J  &hmr_alt LEFT_ALT K  &hmr LEFT_GUI L  &kp SEMI
   &kp Z  &kp X                &kp C            &hml LEFT_CONTROL V  &kp B                     &kp N    &hmr LEFT_CONTROL M      &td_semicolon        &td_comma        &kp LBKT
-                                               &trans               &trans  &trans    &trans  &trans   &lt 8 SINGLE_QUOTE
+                                               &trans               &trans  &trans    &trans  &trans   &lt 7 SINGLE_QUOTE
             >;
 
             display-name = "ru";
@@ -453,32 +453,21 @@
 
         functional_macos {
             bindings = <
-  &kp LA(T)   &kp LG(W)  &kp LG(T)    &kp LA(F)  &tog 4                                  &trans  &kp LA(NUMBER_5)          &kp LA(N6)                 &kp LA(N7)        &kp LA(N8)
-  &sl_mo 3 3  &pwin      &kp LA(TAB)  &nwin      &kp LS(LG(S))                           &trans  &kp LA(N1)                &kp LA(NUMBER_2)           &kp LA(NUMBER_3)  &kp LA(NUMBER_4)
-  &kp ESC     &kp LG(Z)  &kp LG(C)    &kp LG(V)  &cb_macos                               &trans  &kp LS(LG(LEFT_BRACKET))  &kp LS(LG(RIGHT_BRACKET))  &kp LA(COMMA)     &kp LA(FSLH)
-                                      &trans     &trans         &trans    &kp LG(SPACE)  &trans  &ru_switch_macos
+  &kp LA(T)         &kp LG(W)  &kp LG(T)    &kp LA(F)  &tog 3                                  &trans  &kp LA(NUMBER_5)          &kp LA(N6)                 &kp LA(N7)        &kp LA(N8)
+  &ru_switch_macos  &pwin      &kp LA(TAB)  &nwin      &kp LS(LG(S))                           &trans  &kp LA(N1)                &kp LA(NUMBER_2)           &kp LA(NUMBER_3)  &kp LA(NUMBER_4)
+  &kp ESC           &kp LG(Z)  &kp LG(C)    &kp LG(V)  &cb_macos                               &trans  &kp LS(LG(LEFT_BRACKET))  &kp LS(LG(RIGHT_BRACKET))  &kp LA(COMMA)     &kp LA(FSLH)
+                                            &trans     &trans         &trans    &kp LG(SPACE)  &trans  &trans
             >;
 
             display-name = "func";
         };
 
-        tiling {
-            bindings = <
-  &trans                          &trans         &trans  &trans     &trans                       &trans  &kp LS(LA(N5))  &kp LS(LA(N6))  &kp LS(LA(N7))  &kp LS(LA(N8))
-  &sk_hold LEFT_SHIFT LEFT_SHIFT  &trans         &trans  &kp LA(W)  &kp LA(P)                    &trans  &kp LA(LS(N1))  &kp LS(LA(N2))  &kp LS(LA(N3))  &kp LS(LA(N4))
-  &kp ESC                         &kp LS(LG(Z))  &trans  &kp LA(Y)  &trans                       &trans  &trans          &trans          &trans          &trans
-                                                         &trans     &trans     &trans    &trans  &trans  &trans
-            >;
-
-            label = "tiling";
-        };
-
         draw {
             bindings = <
-  &kp LG(PLUS)  &kp LG(MINUS)    &zoom_80         &kp LS(N1)               &kp R                                       &trans  &trans  &trans  &trans  &trans
+  &kp LG(PLUS)  &kp LG(MINUS)    &zoom            &kp LS(N1)               &kp R                                       &trans  &trans  &trans  &trans  &trans
   &kp S         &hml LEFT_GUI E  &hml LEFT_ALT P  &hml_shift LEFT_SHIFT V  &tog_4_text                                 &trans  &trans  &trans  &trans  &trans
-  &kp ESC       &kp LG(Z)        &kp LG(C)        &kp LG(V)                &kp LS(NUMBER_2)                            &trans  &trans  &trans  &trans  &trans
-                                                  &none                    &bs_layer 5 BACKSPACE  &kp SPACE    &trans  &tog 4  &trans
+  &kp ESC       &kp LG(Z)        &kp LG(C)        &kp LG(V)                &kp LG(LS(SQT))                             &trans  &trans  &trans  &trans  &trans
+                                                  &none                    &bs_layer 4 BACKSPACE  &kp SPACE    &tog 3  &tog 3  &tog 3
             >;
 
             label = "draw";
@@ -500,7 +489,7 @@
   &kp EXCL      &kp LT        &kp AMPERSAND  &kp GT                       &kp CARET                      &kp HASH             &kp N7    &kp N8  &kp N9      &kp TILDE
   &kp UNDER     &kp ASTERISK  &kp MINUS      &hml_shift LEFT_SHIFT COLON  &kp EQUAL                      &kp DOT              &kp N1    &kp N2  &kp N3      &kp DQT
   &kp QUESTION  &kp PLUS      &kp PIPE       &kp DOLLAR                   &kp PERCENT                    &kp AT_SIGN          &kp N4    &kp N5  &six_comma  &kp SINGLE_QUOTE
-                                             &trans                       &trans       &trans    &trans  &lt_zero 7 NUMBER_0  &kp NUBS
+                                             &trans                       &trans       &trans    &trans  &lt_zero 6 NUMBER_0  &kp NUBS
             >;
 
             label = "num";
@@ -511,7 +500,7 @@
   &trans                              &trans                              &trans                      &trans                          &trans                                              &kp PAGE_UP    &kp K_CMENU  &kp UP    &kp DELETE            &trans
   &sk_hold LEFT_CONTROL LEFT_CONTROL  &sk_hold LEFT_COMMAND LEFT_COMMAND  &sk_hold LEFT_ALT LEFT_ALT  &sk_hold LEFT_SHIFT LEFT_SHIFT  &trans                                              &kp PAGE_DOWN  &kp LEFT     &kp DOWN  &kp RIGHT             &kp LG(I)
   &kp ESC                             &kp LG(Z)                           &kp LG(C)                   &kp LG(V)                       &cb_macos                                           &trans         &kp RETURN   &kp TAB   &select_string_macos  &trans
-                                                                                                      &trans                          &trans     &space_shift LEFT_SHIFT SPACE    &trans  &tog 7         &trans
+                                                                                                      &trans                          &trans     &space_shift LEFT_SHIFT SPACE    &trans  &tog 6         &trans
             >;
 
             label = "nav";
@@ -519,10 +508,10 @@
 
         mouse_media {
             bindings = <
-  &trans  &msc SCRL_UP    &mmv MOVE_UP    &msc SCRL_DOWN   &trans                    &trans  &sl_mo 9 9        &kp C_VOLUME_DOWN  &kp C_VOLUME_DOWN  &trans
-  &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans                    &trans  &mkp MB1          &mkp MB2           &mkp MB3           &sk_hold LEFT_SHIFT LEFT_SHIFT
-  &trans  &msc SCRL_LEFT  &kp LG(C)       &msc SCRL_RIGHT  &trans                    &trans  &kp C_PLAY_PAUSE  &kp C_PREV         &kp C_NEXT         &trans
-                                          &trans           &trans  &trans    &sl 10  &trans  &trans
+  &trans  &msc SCRL_UP    &mmv MOVE_UP    &msc SCRL_DOWN   &trans                   &trans  &sl_mo 8 8        &kp C_VOLUME_DOWN  &kp C_VOLUME_DOWN  &trans
+  &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans                   &trans  &mkp MB1          &mkp MB2           &mkp MB3           &sk_hold LEFT_SHIFT LEFT_SHIFT
+  &trans  &msc SCRL_LEFT  &kp LG(C)       &msc SCRL_RIGHT  &trans                   &trans  &kp C_PLAY_PAUSE  &kp C_PREV         &kp C_NEXT         &trans
+                                          &trans           &trans  &trans    &sl 9  &trans  &trans
             >;
 
             label = "mm";
