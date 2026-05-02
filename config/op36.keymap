@@ -346,6 +346,17 @@
             key-positions = <34 28>;
             layers = <0 1 2 6>;
         };
+
+        diamond {
+            bindings = <&kp D>;
+            key-positions = <3 4>;
+            layers = <0 1>;
+        };
+
+        arrow {
+            bindings = <&kp A>;
+            key-positions = <13 14>;
+        };
     };
 
     macros {
@@ -497,10 +508,10 @@
 
         navigation_macos {
             bindings = <
-  &trans                              &trans                              &trans                      &trans                          &trans                                              &kp PAGE_UP    &kp K_CMENU  &kp UP    &kp DELETE            &trans
-  &sk_hold LEFT_CONTROL LEFT_CONTROL  &sk_hold LEFT_COMMAND LEFT_COMMAND  &sk_hold LEFT_ALT LEFT_ALT  &sk_hold LEFT_SHIFT LEFT_SHIFT  &trans                                              &kp PAGE_DOWN  &kp LEFT     &kp DOWN  &kp RIGHT             &kp LG(I)
-  &kp ESC                             &kp LG(Z)                           &kp LG(C)                   &kp LG(V)                       &cb_macos                                           &trans         &kp RETURN   &kp TAB   &select_string_macos  &trans
-                                                                                                      &trans                          &trans     &space_shift LEFT_SHIFT SPACE    &trans  &tog 6         &trans
+  &trans                              &trans                              &trans        &trans          &trans                                              &kp PAGE_UP    &kp K_CMENU  &kp UP    &kp DELETE            &trans
+  &sk_hold LEFT_CONTROL LEFT_CONTROL  &sk_hold LEFT_COMMAND LEFT_COMMAND  &kp LEFT_ALT  &kp LEFT_SHIFT  &trans                                              &kp PAGE_DOWN  &kp LEFT     &kp DOWN  &kp RIGHT             &kp LG(I)
+  &kp ESC                             &kp LG(Z)                           &kp LG(C)     &kp LG(V)       &cb_macos                                           &trans         &kp RETURN   &kp TAB   &select_string_macos  &trans
+                                                                                        &trans          &trans     &space_shift LEFT_SHIFT SPACE    &trans  &tog 6         &trans
             >;
 
             label = "nav";
