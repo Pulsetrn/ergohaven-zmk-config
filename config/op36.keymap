@@ -94,7 +94,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TD_COLON";
             #binding-cells = <0>;
-            bindings = <&kp F>, <&kp LS(N5)>;
+            bindings = <&kp SEMI>, <&kp LS(N5)>;
         };
 
         td_semicolon: td_semicolon {
@@ -454,7 +454,7 @@
         russian_macos {
             bindings = <
   &kp Q  &kp W                &kp E            &kp R                &kp T                     &kp Y    &kp U                    &kp I                &kp O            &kp P
-  &kp A  &hml LEFT_COMMAND S  &hml LEFT_ALT D  &td_colon            &kp G                     &td_dot  &hmr_shift LEFT_SHIFT J  &hmr_alt LEFT_ALT K  &hmr LEFT_GUI L  &kp SEMI
+  &kp A  &hml LEFT_COMMAND S  &hml LEFT_ALT D  &hml LEFT_SHIFT F    &kp G                     &td_dot  &hmr_shift LEFT_SHIFT J  &hmr_alt LEFT_ALT K  &hmr LEFT_GUI L  &td_colon
   &kp Z  &kp X                &kp C            &hml LEFT_CONTROL V  &kp B                     &kp N    &hmr LEFT_CONTROL M      &td_semicolon        &td_comma        &kp LBKT
                                                &trans               &trans  &trans    &trans  &trans   &lt 7 SINGLE_QUOTE
             >;
@@ -497,10 +497,10 @@
 
         numpad {
             bindings = <
-  &kp EXCL      &kp LT        &kp AMPERSAND  &kp GT                       &kp CARET                     &kp HASH             &kp N7         &kp N8  &kp N9      &kp TILDE
-  &kp UNDER     &kp ASTERISK  &kp MINUS      &hml_shift LEFT_SHIFT COLON  &kp EQUAL                     &kp DOT              &kp N1         &kp N2  &kp N3      &kp DQT
-  &kp QUESTION  &kp PLUS      &kp PIPE       &kp PERCENT                  &kp DOLLAR                    &kp AT_SIGN          &kp N4         &kp N5  &six_comma  &kp SINGLE_QUOTE
-                                             &trans                       &trans      &trans    &trans  &lt_zero 6 NUMBER_0  &kp BACKSLASH
+  &kp EXCL      &kp LT        &kp AMPERSAND  &kp GT                       &kp CARET                        &kp HASH             &kp N7  &kp N8  &kp N9      &kp TILDE
+  &kp UNDER     &kp ASTERISK  &kp MINUS      &hml_shift LEFT_SHIFT EQUAL  &kp DOLLAR                       &kp DOT              &kp N1  &kp N2  &kp N3      &kp COLON
+  &kp QUESTION  &kp PLUS      &kp PIPE       &kp PERCENT                  &kp BACKSLASH                    &kp AT_SIGN          &kp N4  &kp N5  &six_comma  &kp DQT
+                                             &trans                       &trans         &trans    &trans  &lt_zero 6 NUMBER_0  &trans
             >;
 
             label = "num";
